@@ -1,0 +1,27 @@
+{
+    "overall": {
+        "model": "../lib/saved_model/model_COMtune",
+        "layer": 13,
+        "mode": "sequential",
+        "split_size": 500,
+        "PCA_rate": 0.0,
+        "Qubit_type": "Normalize 2Sigma 16bit",
+        "reload": false,
+        "use_udp": false
+    },
+    "edge": {
+        "reach_rate": 1.0,
+        "waiting_time": 5000,
+        "edge_network_delay_time": 0.0,
+        "edge_network_dispersion_time": 0.0,
+        "edge_network_loss_rate": 0.0,
+        "edge_network_band_limitation": 0.0
+    },
+    "iot": {
+        "network_delay_time": 0.0,
+        "network_dispersion_time": 0.0,
+        "network_loss_rate": 0.0,
+        "network_band_limitation": 0.0
+    },
+    "img_path": "data/mnist/X_test/jpg/00000.jpg"
+}

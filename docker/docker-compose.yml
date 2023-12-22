@@ -1,0 +1,54 @@
+version: '3'
+
+networks:
+    distribute-network:
+        ipam:
+            driver: default
+            config:
+            - subnet: 172.40.0.0/16
+services:
+    cloud_server:
+        env_file: .env
+        build:
+            context: ./cloud_server
+        networks:
+            distribute-network:
+                ipv4_address: '172.40.1.1'
+        user: "${UID}:${GID}"
+        volumes:
+            - ..:/workspace
+            - /tmp/.X11-unix:/tmp/.X11-unix
+        tty: true
+        # NOTE: ディスプレイ設定が必要であればこちらを調整する
+        environment:
+            - DISPLAY=${MYDISPLAY}
+    edge_server:
+        env_file: .env
+        build:
+            context: ./edge_server
+        networks:
+            distribute-network:
+                ipv4_address: '172.40.10.1'
+        cap_add:
+            - NET_ADMIN
+        user: "${EDGE_SERVER_UID}:${EDGE_SERVER_GID}"
+        volumes:
+            - ..:/workspace
+        tty: true
+
+    iot_device:
+        env_file: .env
+        build:
+            context: ./iot_device
+        networks:
+            distribute-network:
+                ipv4_address: '172.40.100.1'
+        cap_add:
+            - NET_ADMIN
+        user: "${IOT_DEVICE_UID}:${IOT_DEVICE_GID}"
+        volumes:
+            - ..:/workspace
+            - /tmp/.X11-unix:/tmp/.X11-unix
+        environment:
+            - DISPLAY=${MYDISPLAY}
+        tty: true

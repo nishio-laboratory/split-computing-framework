@@ -1,0 +1,59 @@
+body {
+    font-family: "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+    font-size: 11px;
+}
+
+.footer:first {
+    display: none;
+}
+
+.cover {
+    page-break-after: always;
+}
+
+.title {
+    margin-top: 5em;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: 3em;
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.info {
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    text-indent: 1em;
+    font-size: 1rem;
+}
+
+h2, h3, h4 {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+ul > li {
+    font-size: 0.8rem;
+}
